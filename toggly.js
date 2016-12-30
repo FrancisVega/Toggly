@@ -4,26 +4,25 @@
   // Constants
   const data = {
     block: 'data-toggly',
-    target: 'data-toggly-target',
-    pane: 'data-toggly-pane',
-    active: 'data-toggly-active',
-    id: 'data-toggly-id',
+    pane: 'data-tg-pane',
+    active: 'data-tg-active',
+    id: 'data-tg-id',
   };
 
   // Query Toggly components
-  const block = $(`[${data.block}]`);
+  const togglyComp = $(`[${data.block}]`);
 
   // Each Toggly component in the page
-  block.each(function () {
+  togglyComp.each(function () {
     const eachToggly = this;
-    const target = $(this).attr(`${data.target}`);
+    const target = $(this).attr(`${data.block}`);
     const tabs = $(this).find(`[${data.id}]`);
     const content = $(`[${data.pane}="${target}"]`);
     const contentTargets = $(content).find(`[${data.id}]`);
 
-    tabs.each(function (idx) {
+    tabs.each(function (index) {
       // Igualamos los data-toggly-active del contenedor con los del componente Toggly
-      $(contentTargets[idx]).attr(`${data.active}`, $(tabs[idx]).attr(`${data.active}`));
+      $(contentTargets[index]).attr(`${data.active}`, $(tabs[index]).attr(`${data.active}`));
       $(this).click(function () {
         const tabId = $(this).attr(`${data.id}`);
 
