@@ -9,7 +9,7 @@ Añade `toggly.min.js` a tu web.
 ## Estructura de los tabs
 
 ```html
-<div data-toggly="toggly-pane1">
+<div data-toggly="toggly-funny-pane">
     <ul>
         <li data-toggly-id="1" data-toggly-active="false">
             <a href="#">Tab 1</a>
@@ -27,7 +27,7 @@ Posteriormente en cada 'tab' del componente **Toggly** se añadirá el atributo 
 ## Estructura del contenedor
 
 ```html
-<div data-toggly-pane="toggly-pane">
+<div data-toggly-pane="toggly-funny-pane">
     <div data-toggly-id="1">Toggly Content 1</div>
     <div data-toggly-id="2">Toggly Content 2</div>
 </div>
