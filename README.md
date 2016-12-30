@@ -2,6 +2,10 @@
 
 Pequeño script para hacer tabs tipo 'toggle' usando exclusivamente los atributos data-*
 
+## Instalación
+
+Añade `toggly.min.js` a tu web.
+
 ## Estructura de los tabs
 
 ```html
