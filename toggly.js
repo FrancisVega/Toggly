@@ -1,39 +1,37 @@
 /* global $ */
 
 (function () {
-  const block = $('[data-toggly]');
+  const data = {
+    block: 'data-toggly',
+    target: 'data-toggly-target',
+    tab: 'data-toggly-tab',
+    pane: 'data-toggly-pane',
+    active: 'data-toggly-active',
+    id: 'data-toggly-id',
+  };
+
+  const block = $(`[${data.block}]`);
 
   // Por cada componente Toggly que exista.
   block.each(function () {
     const eachToggly = this;
-    const target = $(this).attr('data-toggly-target');
-    const tabs = $(this).find('[data-toggly-tab]');
-    const content = $(`[data-toggly-pane="${target}"]`);
-    const contentTargets = $(content).find('[data-toggly-id]');
+    const target = $(this).attr(`${data.target}`);
+    const tabs = $(this).find(`[${data.tab}]`);
+    const content = $(`[${data.pane}="${target}"]`);
+    const contentTargets = $(content).find(`[${data.id}]`);
 
-    let c = 0;
-    tabs.each(function () {
-      // -TO REFACTOR------------------------------------------------------------------------------
-      // De primeras, ponemos el data-toggly-active del contenedor igual que el del componente
-      // Toggly.
-      // TODO: Hacer esto mejor :S ¿En otro bucle?
-      $(contentTargets[c]).attr('data-toggly-active', $(this).attr('data-toggly-active'));
-      $(this).attr('data-toggly-id', c + 1);
-      // -TO REFACTOR------------------------------------------------------------------------------
-
+    tabs.each(function (idx) {
+      // Igualamos los data-toggly-active del contenedor con los del componente Toggly
+      $(contentTargets[idx]).attr(`${data.active}`, $(tabs[idx]).attr(`${data.active}`));
       $(this).click(function () {
-        const tabId = $(this).attr('data-toggly-id');
+        const tabId = $(this).attr(`${data.id}`);
         // Gestionamos data-toggly-active del propio elemento toggly.
-        $(eachToggly).find('[data-toggly-active="true"]').attr('data-toggly-active', 'false');
-        $(this).attr('data-toggly-active', 'true');
+        $(eachToggly).find(`[${data.active}="true"]`).attr(`${data.active}`, 'false');
+        $(this).attr(`${data.active}`, 'true');
         // Gestionamos data-toggly-active del elemento target.
-        $(content).find('[data-toggly-id]').attr('data-toggly-active', 'false');
-        $(content).find(`[data-toggly-id='${tabId}']`).attr('data-toggly-active', 'true');
+        $(content).find(`[${data.id}]`).attr(`${data.active}`, 'false');
+        $(content).find(`[${data.id}='${tabId}']`).attr(`${data.active}`, 'true');
       });
-
-      // -TO REFACTOR------------------------------------------------------------------------------
-      c += 1;
-      // -TO REFACTOR------------------------------------------------------------------------------
     });
   });
 }());
