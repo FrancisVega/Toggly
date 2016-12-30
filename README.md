@@ -9,21 +9,20 @@ Añade `toggly.min.js` a tu web.
 ## Estructura de los tabs
 
 ```html
-<div data-toggly data-toggly-target="toggly-pane1">
+<div data-toggly="toggly-pane1">
     <ul>
-        <li data-toggly-tab data-toggly-id="1" data-toggly-active="false">
+        <li data-toggly-id="1" data-toggly-active="false">
             <a href="#">Tab 1</a>
         </li>
-        <li data-toggly-tab data-toggly-id="2" data-toggly-active="true">
+        <li data-toggly-id="2" data-toggly-active="true">
             <a href="#">Tab 2</a>
         </li>
     </ul>
 </div>
 ```
 
-En el contenedor principal se debe añadir un atributo data-toggly para indicarle a **Toggly** donde está el componente.
-En el mismo contenedor se debe añadir otro atributo que se usará para enlazarlo con el contenedor donde se encuentren los paneles a "ocultar/mostrar".
-Posteriormente en cada 'tab' del componente **Toggly** se añadirá el atributo data-toggly-tab para indicar que es un tab, data-toggly-id, que servirá para enlazarlo con el id del contenedor y por último data-toggly-active que valdrá true o false y servir para saber qu tab está activo.
+En el contenedor principal se debe añadir un atributo `data-toggly` para indicarle a **Toggly** que efectivamente es un componente toggly, y se iguala con el valor del contenedor al que quiera afectar.
+Posteriormente en cada 'tab' del componente **Toggly** se añadirá el atributo `data-toggly-id`, que servirá para enlazarlo con el id del contenedor y por último `data-toggly-active` que valdrá true o false y servir para saber qu tab está activo.
 
 ## Estructura del contenedor
 
@@ -34,8 +33,8 @@ Posteriormente en cada 'tab' del componente **Toggly** se añadirá el atributo 
 </div>
 ```
 
-El contenedor ha de tener un atributo data-toggly-pane con el valor que se haya puesto en el componente **Toggly**, en el atributo data-toggly-target.
-Posteriormente en cada contenedor interno donde quiera que Toggly actue se le ha de indicar un id con data-toggly-id, este coincidirá con los ids que hayamos definido en el componente **Toggly**
+El contenedor ha de tener un atributo `data-toggly-pane` con el valor que se haya puesto en el componente **Toggly**, en el atributo `data-toggly`
+Posteriormente en cada contenedor interno donde quiera que Toggly actue se le ha de indicar un id con `data-toggly-id`, este coincidirá con los ids que hayamos definido en el componente **Toggly**
 
 ## Demo
 http://codepen.io/hisco/pen/vyoMdY
