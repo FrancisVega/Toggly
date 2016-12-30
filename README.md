@@ -10,14 +10,8 @@ Añade `toggly.min.js` a tu web.
 
 ```html
 <div data-toggly="toggly-funny-pane">
-    <ul>
-        <li data-tg-id="1" data-tg-active="false">
-            <a href="#">Tab 1</a>
-        </li>
-        <li data-tg-id="2" data-tg-active="true">
-            <a href="#">Tab 2</a>
-        </li>
-    </ul>
+    <a data-tg-id="1" data-tg-active="false">Tab 1</a>
+    <a data-tg-id="2" data-tg-active="true">Tab 2</a>
 </div>
 ```
 
