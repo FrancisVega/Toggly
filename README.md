@@ -11,31 +11,31 @@ Añade `toggly.min.js` a tu web.
 ```html
 <div data-toggly data-toggly-target="toggly-pane1">
     <ul>
-        <li data-toggly-tab data-toggly-active="false">
+        <li data-toggly-tab data-toggly-id="1" data-toggly-active="false">
             <a href="#">Tab 1</a>
         </li>
-        <li data-toggly-tab data-toggly-active="true">
+        <li data-toggly-tab data-toggly-id="2" data-toggly-active="true">
             <a href="#">Tab 2</a>
         </li>
     </ul>
 </div>
 ```
 
-En el contenedor principal se debe añadir un atributo data-toggly para indicarle a toggly donde están los tabs.
-En el mismo contenedor se debe añadir otro atributo que se usará para enlazarlo con el contenedor que tenga el contenido para hacer el 'toggle'
-Posteriormente en cada 'tab' se añadirá el atributo data-toggly-tab seguido del estado con data-toggly-active que valdrá true o false
+En el contenedor principal se debe añadir un atributo data-toggly para indicarle a **Toggly** donde está el componente.
+En el mismo contenedor se debe añadir otro atributo que se usará para enlazarlo con el contenedor donde se encuentren los paneles a "ocultar/mostrar".
+Posteriormente en cada 'tab' del componente **Toggly** se añadirá el atributo data-toggly-tab para indicar que es un tab, data-toggly-id, que servirá para enlazarlo con el id del contenedor y por último data-toggly-active que valdrá true o false y servir para saber qu tab está activo.
 
 ## Estructura del contenedor
 
 ```html
-<div data-toggly-pane="toggly-pane1">
+<div data-toggly-pane="toggly-pane">
     <div data-toggly-id="1">Toggly Content 1</div>
     <div data-toggly-id="2">Toggly Content 2</div>
 </div>
 ```
 
-El contenedor ha de tener un atributo data-toggly-pane con el valor que se haya puesto en elos tabs, en el atributo data-toggly-target.
-Posteriormente en cada contenedor interno donde quiera que Toggly actue se le ha de indicar un id con data-toggly-id, este coincidirá con los tabs en orden.
+El contenedor ha de tener un atributo data-toggly-pane con el valor que se haya puesto en el componente **Toggly**, en el atributo data-toggly-target.
+Posteriormente en cada contenedor interno donde quiera que Toggly actue se le ha de indicar un id con data-toggly-id, este coincidirá con los ids que hayamos definido en el componente **Toggly**
 
 ## Demo
 http://codepen.io/hisco/pen/vyoMdY
