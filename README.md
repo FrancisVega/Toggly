@@ -4,7 +4,7 @@ Pequeño script para hacer tabs tipo 'toggle' usando exclusivamente los atributo
 
 ## Estructura de los tabs
 
-```
+```html
 <div data-toggly data-toggly-target="toggly-pane1">
     <ul>
         <li data-toggly-tab data-toggly-active="false">
@@ -23,7 +23,7 @@ Posteriormente en cada 'tab' se añadirá el atributo data-toggly-tab seguido de
 
 ## Estructura del contenedor
 
-```
+```html
 <div data-toggly-pane="toggly-pane1">
     <div data-toggly-id="1">Toggly Content 1</div>
     <div data-toggly-id="2">Toggly Content 2</div>
@@ -32,3 +32,6 @@ Posteriormente en cada 'tab' se añadirá el atributo data-toggly-tab seguido de
 
 El contenedor ha de tener un atributo data-toggly-pane con el valor que se haya puesto en elos tabs, en el atributo data-toggly-target.
 Posteriormente en cada contenedor interno donde quiera que Toggly actue se le ha de indicar un id con data-toggly-id, este coincidirá con los tabs en orden.
+
+## Demo
+http://codepen.io/hisco/pen/vyoMdY
