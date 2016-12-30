@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link media="all" rel="stylesheet" href="/css/main.css">
+        <title>Toggly</title>
+    </head>
+
+    <div class="tab" data-toggly data-toggly-target="toggly-pane1">
+        <ul>
+            <li data-toggly-tab data-toggly-active="false">
+                <a href="#">Tab 1</a>
+            </li>
+            <li data-toggly-tab data-toggly-active="true">
+                <a href="#">Tab 2</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="c" data-toggly-pane="toggly-pane1">
+        <div data-toggly-id="1">Toggly Content 1</div>
+        <div data-toggly-id="2">Toggly Content 2</div>
+    </div>
+
+    <div class="tab" data-toggly data-toggly-target="toggly-pane2">
+        <ul>
+            <li data-toggly-tab data-toggly-active="true">
+                <a href="#">🍤</a>
+            </li>
+            <li data-toggly-tab data-toggly-active="false">
+                <a href="#">🌭</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="c" data-toggly-pane="toggly-pane2">
+        <div data-toggly-id="1">Has elegido 🍤</div>
+        <div data-toggly-id="2">Has elegido 🌭</div>
+    </div>
+
+    </body>
+</html>
