@@ -1,6 +1,6 @@
 {
   "name": "toggly",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "script to make toggle buttons like tabs",
   "main": "index.js",
   "scripts": {
