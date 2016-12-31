@@ -12,7 +12,7 @@
   // Query Toggly components
   const togglyComp = document.querySelectorAll(`[${data.block}]`);
 
-  for (let i = 0; i < togglyComp.length; i += i) {
+  for (let i = 0; i < togglyComp.length; i += 1) {
     const eachToggly = togglyComp[i];
     const target = togglyComp[i].getAttribute(`${data.block}`);
     const tabs = togglyComp[i].querySelectorAll(`[${data.id}]`);
