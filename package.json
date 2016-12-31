@@ -1,12 +1,19 @@
 {
   "name": "toggly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "script to make toggle buttons like tabs",
   "main": "index.js",
   "scripts": {
     "test": ""
   },
-  "keywords": ["toggle", "tabs", "buttons", "script", "javascript", "jquery"],
+  "keywords": [
+    "toggle",
+    "tabs",
+    "buttons",
+    "script",
+    "javascript",
+    "jquery"
+  ],
   "author": "Francis Vega <hisconer@gmail.com> (inartx.com)",
   "license": "ISC",
   "repository": {
