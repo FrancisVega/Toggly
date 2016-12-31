@@ -26,10 +26,10 @@
 
         // Gestionamos data-toggly-active del propio elemento toggly
         const zeta = eachToggly.querySelectorAll(`[${data.active}="true"]`);
-
         for (let x = 0; x < zeta.length; x += 1) {
           zeta[x].setAttribute(`${data.active}`, 'false');
         }
+
         this.setAttribute(`${data.active}`, 'true');
 
         // Gestionamos data-toggly-active del elemento target
@@ -38,10 +38,7 @@
           beta[x].setAttribute(`${data.active}`, 'false');
         }
 
-        const alpha = content.querySelectorAll(`[${data.id}='${tabId}']`);
-        for (let x = 0; x < alpha.length; x += 1) {
-          alpha[x].setAttribute(`${data.active}`, 'true');
-        }
+        content.querySelector(`[${data.id}='${tabId}']`).setAttribute(`${data.active}`, 'true');
       };
     }
   }
