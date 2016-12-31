@@ -13,29 +13,33 @@
   const togglyComp = document.querySelectorAll(`[${data.block}]`);
 
   for (let i = 0; i < togglyComp.length; i += 1) {
+    // Togglys
     const eachToggly = togglyComp[i];
-    const target = togglyComp[i].getAttribute(`${data.block}`);
-    const tabs = togglyComp[i].querySelectorAll(`[${data.id}]`);
+    const target = eachToggly.getAttribute(`${data.block}`);
+    const tabs = eachToggly.querySelectorAll(`[${data.id}]`);
+
+    // Contents
     const content = document.querySelectorAll(`[${data.pane}="${target}"]`)[0];
     const contentTargets = content.querySelectorAll(`[${data.id}]`);
 
+    // Each Toggly tab
     for (let j = 0; j < tabs.length; j += 1) {
       contentTargets[j].setAttribute(`${data.active}`, tabs[j].getAttribute(`${data.active}`));
       tabs[j].onclick = function () {
         const tabId = this.getAttribute(`${data.id}`);
 
         // Gestionamos data-toggly-active del propio elemento toggly
-        const zeta = eachToggly.querySelectorAll(`[${data.active}="true"]`);
-        for (let x = 0; x < zeta.length; x += 1) {
-          zeta[x].setAttribute(`${data.active}`, 'false');
+        const togglyActive = eachToggly.querySelectorAll(`[${data.active}="true"]`);
+        for (let x = 0; x < togglyActive.length; x += 1) {
+          togglyActive[x].setAttribute(`${data.active}`, 'false');
         }
 
         this.setAttribute(`${data.active}`, 'true');
 
         // Gestionamos data-toggly-active del elemento target
-        const beta = content.querySelectorAll(`[${data.id}]`);
-        for (let x = 0; x < beta.length; x += 1) {
-          beta[x].setAttribute(`${data.active}`, 'false');
+        const contentId = content.querySelectorAll(`[${data.id}]`);
+        for (let x = 0; x < contentId.length; x += 1) {
+          contentId[x].setAttribute(`${data.active}`, 'false');
         }
 
         content.querySelector(`[${data.id}='${tabId}']`).setAttribute(`${data.active}`, 'true');
