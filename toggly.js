@@ -44,21 +44,21 @@
 (function () {
   // Constantes
   const data = {
-    block: 'data-toggly',
+    toggly: 'data-toggly',
     pane: 'data-tg-pane',
     active: 'data-tg-active',
     id: 'data-tg-id',
   };
 
   // Query Toggly componentes
-  const togglyComp = $(`[${data.block}]`);
+  const togglyComp = $(`[${data.toggly}]`);
 
   // Pasamos por cada Toggly component en la página, ya que puede haber más de
   // uno, con distinto target en data-toggly="target-name"
   togglyComp.each(function () {
     // Toggly's
     const eachToggly = this;
-    const target = $(this).attr(`${data.block}`);
+    const target = $(this).attr(`${data.toggly}`);
     const tabs = $(this).find(`[${data.id}]`);
 
     // Targets
