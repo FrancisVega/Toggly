@@ -42,7 +42,7 @@
 /* global $ */
 
 (function () {
-  // Constants
+  // Constantes
   const data = {
     block: 'data-toggly',
     pane: 'data-tg-pane',
@@ -50,35 +50,40 @@
     id: 'data-tg-id',
   };
 
-  // Query Toggly components
+  // Query Toggly componentes
   const togglyComp = $(`[${data.block}]`);
 
-  // Each Toggly component in the page
+  // Pasamos por cada Toggly component en la página, ya que puede haber más de
+  // uno, con distinto target en data-toggly="target-name"
   togglyComp.each(function () {
-    // Togglys
+    // Toggly's
     const eachToggly = this;
     const target = $(this).attr(`${data.block}`);
     const tabs = $(this).find(`[${data.id}]`);
 
-    // Contents
-    const content = $(`[${data.pane}="${target}"]`);
-    const contentTargets = $(content).find(`[${data.id}]`);
+    // Targets
+    const targetPane = $(`[${data.pane}="${target}"]`);
+    const paneContent = $(targetPane).find(`[${data.id}]`);
 
     // Each Toggly tab
     tabs.each(function (index) {
-      // Igualamos los data-tg-active del contenedor con los del componente Toggly
-      $(contentTargets[index]).attr(`${data.active}`, $(tabs[index]).attr(`${data.active}`));
+      // Al cargarse Toggly iguala los data-tg-active con lo que haya en Toggly
+      $(paneContent[index]).attr(`${data.active}`, $(tabs[index]).attr(`${data.active}`));
       $(this).click(function () {
-        // Guardamos el Id del tab pulsado
-        const tabId = $(this).attr(`${data.id}`);
         // `active = false` todos los tabs (reset)
         $(eachToggly).find(`[${data.active}]`).attr(`${data.active}`, 'false');
+
         // `active = true` el tab pulsado
         $(this).attr(`${data.active}`, 'true');
+
         // `active = false` todos los elementos del target (reset)
-        $(content).find(`[${data.id}]`).attr(`${data.active}`, 'false');
-        // `active = true` el contenedor que coincida con el id del tab pulsado
-        $(content).find(`[${data.id}='${tabId}']`).attr(`${data.active}`, 'true');
+        $(targetPane).find(`[${data.id}]`).attr(`${data.active}`, 'false');
+
+        // Id del tab pulsado
+        const tabId = $(this).attr(`${data.id}`);
+
+        // `active = true` el target que coincida con el id del tab pulsado
+        $(targetPane).find(`[${data.id}='${tabId}']`).attr(`${data.active}`, 'true');
       });
     });
   });
