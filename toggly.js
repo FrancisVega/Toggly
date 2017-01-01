@@ -69,14 +69,15 @@
       // Igualamos los data-tg-active del contenedor con los del componente Toggly
       $(contentTargets[index]).attr(`${data.active}`, $(tabs[index]).attr(`${data.active}`));
       $(this).click(function () {
+        // Guardamos el Id del tab pulsado
         const tabId = $(this).attr(`${data.id}`);
-
-        // Gestionamos data-tg-active del propio elemento toggly
-        $(eachToggly).find(`[${data.active}="true"]`).attr(`${data.active}`, 'false');
+        // `active = false` todos los tabs (reset)
+        $(eachToggly).find(`[${data.active}]`).attr(`${data.active}`, 'false');
+        // `active = true` el tab pulsado
         $(this).attr(`${data.active}`, 'true');
-
-        // Gestionamos data-tg-active del elemento target
+        // `active = false` todos los elementos del target (reset)
         $(content).find(`[${data.id}]`).attr(`${data.active}`, 'false');
+        // `active = true` el contenedor que coincida con el id del tab pulsado
         $(content).find(`[${data.id}='${tabId}']`).attr(`${data.active}`, 'true');
       });
     });
