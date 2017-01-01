@@ -9,13 +9,27 @@
     id: 'data-tg-id',
   };
 
+  // Set attribute to el o els
+  const setAttr = (el, attr, attrValue) => {
+    if (el.length !== undefined) {
+      for (let i = 0; i < el.length; i += 1) {
+        el[i].setAttribute(attr, attrValue);
+      }
+    } else {
+      el.setAttribute(attr, attrValue);
+    }
+  };
+
+  // Get attribute
+  const getAttr = (el, attr) => el.getAttribute(attr);
+
   // Query Toggly components
   const togglyComp = document.querySelectorAll(`[${data.block}]`);
 
   for (let i = 0; i < togglyComp.length; i += 1) {
     // Togglys
     const eachToggly = togglyComp[i];
-    const target = eachToggly.getAttribute(`${data.block}`);
+    const target = getAttr(eachToggly, `${data.block}`);
     const tabs = eachToggly.querySelectorAll(`[${data.id}]`);
 
     // Contents
@@ -24,26 +38,17 @@
 
     // Each Toggly tab
     for (let j = 0; j < tabs.length; j += 1) {
-      // Igualamos los data-tg-active del contenedor con los del componente Toggly
-      contentTargets[j].setAttribute(`${data.active}`, tabs[j].getAttribute(`${data.active}`));
+      setAttr(contentTargets[j], `${data.active}`, getAttr(tabs[j], `${data.active}`));
       tabs[j].onclick = function () {
-        const tabId = this.getAttribute(`${data.id}`);
+        const tabId = getAttr(this, `${data.id}`);
 
         // Gestionamos data-tg-active del propio elemento toggly
-        const togglyActive = eachToggly.querySelectorAll(`[${data.active}="true"]`);
-        for (let x = 0; x < togglyActive.length; x += 1) {
-          togglyActive[x].setAttribute(`${data.active}`, 'false');
-        }
-
-        this.setAttribute(`${data.active}`, 'true');
+        setAttr(eachToggly.querySelectorAll(`[${data.active}="true"]`), `${data.active}`, 'false');
+        setAttr(this, `${data.active}`, 'true');
 
         // Gestionamos data-tg-active del elemento target
-        const contentId = content.querySelectorAll(`[${data.id}]`);
-        for (let x = 0; x < contentId.length; x += 1) {
-          contentId[x].setAttribute(`${data.active}`, 'false');
-        }
-
-        content.querySelector(`[${data.id}='${tabId}']`).setAttribute(`${data.active}`, 'true');
+        setAttr(content.querySelectorAll(`[${data.id}]`), `${data.active}`, 'false');
+        setAttr(content.querySelector(`[${data.id}='${tabId}']`), `${data.active}`, 'true');
       };
     }
   }
