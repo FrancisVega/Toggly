@@ -69,7 +69,9 @@
     tabs.each(function (index) {
       // Al cargarse Toggly iguala los data-tg-active con lo que haya en Toggly
       $(paneContent[index]).attr(`${data.active}`, $(tabs[index]).attr(`${data.active}`));
-      $(this).click(function () {
+      $(this).click(function (e) {
+        e.preventDefault();
+
         // `active = false` todos los tabs (reset)
         $(eachToggly).find(`[${data.active}]`).attr(`${data.active}`, 'false');
 
